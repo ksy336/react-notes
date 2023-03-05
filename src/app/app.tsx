@@ -1,14 +1,11 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.css';
+import React from "react";
+import TopBar from "../components/TopBar/TopBar";
 
-import NxWelcome from './nx-welcome';
 
 export function App() {
   return (
     <>
-      <NxWelcome title="react-notes" />
-
-      <div />
+      <TopBar />
     </>
   );
 }
