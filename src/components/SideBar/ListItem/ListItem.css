@@ -1,0 +1,12 @@
+.sidebar-content,
+.sidebar-content__active {
+    padding: 5px;
+    cursor: pointer;
+    color: white;
+}
+.sidebar-content__active {
+    background-color: darkgray;
+}
+.sidebar-content:hover {
+    background-color: darkgray;
+}

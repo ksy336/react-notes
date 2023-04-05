@@ -1,0 +1,28 @@
+.topbar {
+    padding-bottom: 10px;
+}
+.topbar-items {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 7px;
+}
+.topbar-items >* {
+    cursor: pointer;
+}
+.list-icon,
+.grid-icon {
+    margin-right: 24px;
+}
+.list-icon:hover,
+.list-icon:active,
+.grid-icon:hover,
+.grid-icon:active,
+.grid-delete:hover,
+.grid-delete:active {
+    transform: scale(0.96);
+}
+.grid-delete {
+    flex: 2;
+    text-align: end;
+}
