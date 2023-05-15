@@ -1,33 +1,34 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Context, IListItem } from '../../../store/context';
+import React, { useState } from 'react';
+import { IListItem } from '../../../store/context';
 import ReactMarkdown from 'react-markdown';
-import JoditEditorComponent from '../JoditEditor/JoditEditor';
+import TextArea from '../TextArea/TextArea';
+import "./MainInfo.css";
 
 type MainInfoProps = {
   item: IListItem
 }
-//1 марта 2023 г. в 17:36
+
 const MainInfo = ({item}: MainInfoProps) => {
   const [editMode, setEditMode] = useState(false);
-  // @ts-ignore
-  const {setItem} = useContext(Context);
-
-  useEffect(() => {
-    setItem(item)
-  }, [item]);
 
   const handleEditorClick = () => {
     setEditMode(true);
   }
+  const date = new Date().toLocaleDateString("ru", {year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',})
   return (
-    <div className="main-block-container" onClick={handleEditorClick}>
+    <div className="main-block-container" onClick={handleEditorClick} onBlur={() => setEditMode(false)}>
       {editMode ? (
-        // <JoditEditorComponent />
-        <TextArea />
+        <TextArea item={item} />
       ) : (
         <>
-          <div className="date-note">{item?.time}</div>
-          <ReactMarkdown>{item?.title}</ReactMarkdown><ReactMarkdown>{item?.description}</ReactMarkdown>
+          <div className="date-note">{date}</div>
+          <ReactMarkdown children={item?.title}/>
+          <ReactMarkdown children={item?.content}/>
         </>
       )}
     </div>

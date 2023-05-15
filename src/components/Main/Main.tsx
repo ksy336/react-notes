@@ -4,15 +4,12 @@ import MainInfo from '../MainInfo/MainInfo';
 
 const Main = () => {
   // @ts-ignore
-  const {markDownIds} = useContext(Context);
+  const {selectedNote} = useContext(Context);
   return (
     <section>
-      {markDownIds?.map((item: IListItem) => (
         <MainInfo
-          key={item.id}
-          item={item}
+          item={selectedNote}
         />
-      ))}
     </section>
   );
 };

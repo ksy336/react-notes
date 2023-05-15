@@ -1,12 +1,37 @@
+.sidebar-block {
+    min-height: 100px;
+    height: 1px;
+    /*max-height: 150px;*/
+    /*height: 150px;*/
+    text-overflow: ellipsis;
+    /*overflow-y: auto;*/
+    overflow: hidden;
+    white-space: nowrap;
+}
 .sidebar-content,
 .sidebar-content__active {
+    height: 100%;
     padding: 5px;
     cursor: pointer;
     color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .sidebar-content__active {
     background-color: darkgray;
 }
 .sidebar-content:hover {
     background-color: darkgray;
+}
+.sidebar-title,
+.sidebar-text {
+    text-overflow: ellipsis;
+    /*white-space: nowrap;*/
+    /*overflow: hidden;*/
+}
+.sidebar-text > *,
+.sidebar-title > * {
+    margin-top: 0;
+    margin-bottom: 0;
 }

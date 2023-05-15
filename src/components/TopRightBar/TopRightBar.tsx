@@ -7,22 +7,15 @@ import { Context, IListItem } from '../../../store/context';
 
 const TopRightBar = () => {
   // @ts-ignore
-  const {listItems, setFilteredNotesList} = useContext(Context);
-  const [searchText, setSearchText] = useState("");
-  const filteredNotes = listItems
-    ?.slice()
-    ?.reverse()
-    ?.filter((item: IListItem) => item?.title?.toLowerCase()?.includes(searchText.toLowerCase()))
-    ?.reverse();
-
-  useEffect(() => {
-    setFilteredNotesList(filteredNotes);
-  }, [searchText]);
+  const {addToList, setSearchText} = useContext(Context);
+  const addNewNote = () => {
+    addToList({id: Date.now(), title: "Новая заметка", time: new Date().toLocaleDateString(), content: ""})
+  }
 
   return (
     <>
       <section className="edit-container">
-        <div className="notes-block">
+        <div className="notes-block" onClick={addNewNote}>
           <img src={iconNotes} alt="notes icon" width="30" height="30" />
         </div>
         <div className="fonts-block">
